@@ -4,9 +4,9 @@
       <v-col md="10">
         <v-card>
           <v-container>
-            <v-row>
-              <v-col v-if="$fetchState.pending">
-                Carregando
+            <v-row justify="center" align="center">
+              <v-col v-if="$fetchState.pending" md="2">
+                <p>Carregando...</p>
               </v-col>
               <v-col v-else md="3" v-for="stripe in stripes" :key="stripe.id" >
                 <v-col md="4">
@@ -31,9 +31,9 @@ export default {
     };
   },
   async fetch() {
-    this.stripes = await fetch(
+    this.stripes = await this.$axios.get(
       "http://magento-two.docker.com/rest/V1/k13/stripes"
-    ).then((res) => res.json());
+    ).then((res) => res.data);
   },
 };
 </script>
