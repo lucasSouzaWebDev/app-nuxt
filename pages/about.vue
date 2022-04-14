@@ -52,22 +52,24 @@
         </v-card-actions>
       </v-card>
     </v-col>
-    <HomeStripes />
+    <v-col md="12">
+      <v-row justify="center" align="center">
+        <v-col md="10">
+          <v-card>
+            <v-container>
+              <v-row>
+              </v-row>
+            </v-container>
+          </v-card>
+        </v-col>
+      </v-row>
+    </v-col>
   </v-row>
 </template>
 
 <script>
 export default {
-  name: "IndexPage",
-  data() {
-    return {
-      stripes: [],
-    };
-  },
-  async fetch() {
-      this.stripes = await fetch(
-        'http://magento-two.docker.com/rest/V1/k13/stripes'
-      ).then(res => res.json())
-    }
+  name: "AboutPage",
+  
 };
 </script>
