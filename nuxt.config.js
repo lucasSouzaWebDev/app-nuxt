@@ -41,8 +41,21 @@ export default {
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    ['@nuxtjs/axios']
+    '@nuxtjs/axios',
+    '@nuxtjs/auth-next'
   ],
+
+  auth: {
+    strategies: {
+      facebook: {
+        endpoints: {
+          userInfo: 'https://graph.facebook.com/v6.0/me?fields=id,name,picture{url}'
+        },
+        clientId: '1158546294960826',
+        scope: ['public_profile', 'email']
+      },
+    }
+  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {

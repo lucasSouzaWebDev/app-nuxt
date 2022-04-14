@@ -7,7 +7,7 @@
       </v-card>
       <v-card>
         <v-card-title class="headline">Welcome to the Vuetify + Nuxt.js template</v-card-title>
-        <v-btn icon color="blue white--text"><v-icon>mdi-facebook</v-icon></v-btn>
+        <v-btn icon color="blue white--text" @click="$auth.loginWith('facebook')"><v-icon>mdi-facebook</v-icon></v-btn>
         <v-card-text>
           <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
           <v-btn @click="$store.commit('increment')">Click {{ $store.state.counter }}</v-btn>
@@ -64,12 +64,16 @@
 
 <script>
 export default {
-  name: "IndexPage",
+name: "loginPage",
   data() {
     return {
       stripes: [],
     };
   },
   middleware: 'auth'
-};
+}
 </script>
+
+<style>
+
+</style>
