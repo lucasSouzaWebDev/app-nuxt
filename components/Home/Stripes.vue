@@ -14,6 +14,7 @@
                 </v-col>
                 <v-col md="4" >{{stripe.description}}</v-col>
               </v-col>
+              <p>Mixin: {{name + lastname}}</p>
             </v-row>
           </v-container>
         </v-card>
@@ -23,6 +24,8 @@
 </template>
 
 <script>
+import utils from '~/mixins/utils.js'
+
 export default {
   name: "Stripes",
   data() {
@@ -30,6 +33,7 @@ export default {
       stripes: [],
     };
   },
+  mixins: [utils],
   async fetch() {
     this.stripes = await this.$axios.get(
       "http://magento-two.docker.com/rest/V1/k13/stripes"
